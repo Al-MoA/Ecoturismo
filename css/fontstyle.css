@@ -1,0 +1,26 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../font/Roboto-Medium/Roboto-Medium.eot"); /* IE9 Compat Modes */
+  src: url("../font/Roboto-Medium/Roboto-Medium.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../font/Roboto-Medium/Roboto-Medium.otf") format("opentype"),
+    /* Open Type Font */ url("../font/Roboto-Medium/Roboto-Medium.svg") format("svg"),
+    /* Legacy iOS */ url("../font/Roboto-Medium/Roboto-Medium.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../font/Roboto-Medium/Roboto-Medium.woff") format("woff"),
+    /* Modern Browsers */ url("../font/Roboto-Medium/Roboto-Medium.woff2") format("woff2"); /* Modern Browsers */
+
+  font-family: "HindSiliguri-Regular";
+  src: url("../font/HindSiliguri-Regular/HindSiliguri-Regular.eot"); /* IE9 Compat Modes */
+  src: url("../font/HindSiliguri-RegularHindSiliguri-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../font/HindSiliguri-Regular/HindSiliguri-Regular.otf") format("opentype"),
+    /* Open Type Font */ url("../font/HindSiliguri-Regular/HindSiliguri-Regular.svg") format("svg"),
+    /* Legacy iOS */ url("../font/HindSiliguri-Regular/HindSiliguri-Regular.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../font/HindSiliguri-Regular/HindSiliguri-Regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../font/HindSiliguri-Regular/HindSiliguri-Regular.woff2")
+      format("woff2"); /* Modern Browsers */
+      
+  font-weight: normal;
+  font-style: normal;
+}
