@@ -1,0 +1,32 @@
+{% extends 'turismo/base.html' %}
+{% load static %}
+{% block contenido %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--importando estilo css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--titulo-->
+    <title>Valparaíso</title>
+</head>
+<div id="cuerpo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <!--imagen encabezado-->
+    <div class="row">
+        <img src="{% static 'Imagenes/Valpo1.jpg' %}" width=100% alt="Imagen no disponible" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    </div>
+    <h1>Primer destino: Valparaíso</h1>
+    <ul>
+        <li>Bohemia y colorida. Valparaíso te invita a descubrir siempre un nuevo decorado urbano, una interesante galería de arte o un rincón gastronómico, entre sus laberínticos cerros que han sido inspiración de poetas y escritores.</li>
+
+        <li>Cautívate con la loca arquitectura de la Ciudad Patrimonio de la Humanidad. Recorre a pie sus estrechas calles, infinitas escaleras, históricos ascensores y sus múltiples miradores. Contágiate de la alegría de sus carnavales y espectacular show de juegos artificiales que despiden desde el mar las Fiestas de Fin de Año.</li>
+            
+        <li>No olvides visitar su puerto y caletas, fiel retrato de la idiosincrasia chilena. ¡Sorpréndete con el mercado de productos del mar recién extraídos y la extrovertida labia de los pescadores!</li>
+            
+        <li>La Joya del Pacífico, como también es conocida la ciudad, es sede del Poder Legislativo de la nación y casa de la Armada Chilena. ¡Conoce sus impresionantes edificios y empápate de nuestra historia marítima!</li>
+        </li>  
+    </ul>
+    <div class="row">
+        <img src="{% static 'Imagenes/mapaValpo.png' %}" width=100% alt="Imagen no disponible" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    </div>
+</div>
+{% endblock%}

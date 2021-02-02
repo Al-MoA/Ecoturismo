@@ -1,0 +1,44 @@
+{% extends 'turismo/base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="row">
+    <img src="{% static 'Imagenes/Logo.jpeg.jpg' %}" width=100% alt="Imagen no disponible"
+        class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+</div>
+<!--mensaje de informacion-->
+<div id="cuerpo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Ecoturismo: Lugares que Hablan</h1>
+    <p>Te invitamos a descubrir un Chile que no conocías</p>
+    {% for pa in carrucel %}
+    <!--slider-->
+    <div class="slideshow-container row">
+        <div class="mySlides">
+            {% if pa.imagen %}
+                <img src="{{pa.imagen.url}}"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {% endif %}
+        </div>
+        
+    </div>
+    {% endfor %}
+</div>
+<!--mensaje sobre nostros-->
+<div id="cuerpo">
+    <h2>Sobre Nosotros</h2>
+    <p>
+        Somos un grupo de estudiantes apasionados por aprender y conocer más sobre nuestro país. Hemos visto como
+        siempre se habla del turismo fuera de Chile como si no tuviesemos lugares que visitar.
+        ¡He aquí por qué creamos esta página! Para mostrarte una cara de este país que no conocías y tratar de
+        motivarte
+        para ir en una aventura que nunca te hubieses imaginado.
+    </p>
+    <p>
+        ¡Te invitamos a conocer este hermoso país junto a nosotros!
+    </p>
+    <!--imagen-->
+    <div class="row">
+        <img src="{% static 'Imagenes/c2.jpeg.gif' %}" width=100% alt="Imagen no disponible"
+            class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    </div>
+</div>
+<script src="{% static 'js/carusel.js' %}"> </script>
+{% endblock %}
