@@ -1,6 +1,7 @@
 {% extends 'turismo/base.html' %}
 {% load static %}
 {% block contenido %}
+{% load crispy_forms_tags %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,5 +26,20 @@
         <li>La Joya del Pacífico, como también es conocida la ciudad, es sede del Poder Legislativo de la nación y casa de la Armada Chilena. ¡Conoce sus impresionantes edificios y empápate de nuestra historia marítima!</li>
         </li>  
     </ul>
+    <h2>Contáctanos</h2>
+    <form action="" class="formulario_contacto" method="POST">
+        
+        {% csrf_token %} 
+
+        {{ form | crispy }}
+        
+        
+        {% if user.is_authenticated   %}
+            <button type="submit" id="btnEnviar" class="button">Enviar</button>
+        {% else %}
+            <h1>Tienes que estar registrado para conatactarnos</h1>
+        {%endif%}
+    </form>
+    {{mensaje}}
 </div>
 {% endblock%}

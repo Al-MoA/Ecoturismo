@@ -1,5 +1,5 @@
 from django.db import models
-
+  # Create your models here.
 
 class Regiones(models.Model): #creacion de la tabla region
     id_region = models.AutoField(primary_key=True)
@@ -8,7 +8,13 @@ class Regiones(models.Model): #creacion de la tabla region
     def __str__(self): #valor principal que muestra en la tabla region
         return self.nombre
 
-    # Create your models here.
+class Comunas(models.Model):
+    id_region = models.ForeignKey(Regiones, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nombre
+
 
 class Turista(models.Model):#creacion de tabla turista
     Run = models.CharField(max_length=10)

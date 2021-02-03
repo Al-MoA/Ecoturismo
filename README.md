@@ -51,3 +51,12 @@ Se da visto bueno a los archivos subidos por rama dev. El proyecto está listo p
 #master
 
 Se da fin a la fase #3.
+
+#dev
+Se agrego el mantenedor con consultas.
+
+#dev
+Se modifico los permisos de usuarios para que vean el listado contacto.
+
+#release
+Se da visto bueno a las modificaciones.

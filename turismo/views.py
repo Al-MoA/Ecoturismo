@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Regiones, Turista, Carrucel
+from .models import Regiones, Turista, Carrucel, Contacto
 from .form import ContactoForm, RegionForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -45,7 +45,8 @@ def Lugar1(request):#muestra pagina inicial
 def IniciarSesion(request):#muestra pagina inicial
     return render(request, 'turismo/IniciarSesion.html', {})
 
-def Contacto(request):
+
+def agregar_cont(request):
     data = {
         'form': ContactoForm()
     }
@@ -53,49 +54,36 @@ def Contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "contacto guardado"
+            data["mensaje"] = "Mensaje enviado"
         else:
             data["form"] = formulario
-    return render(request, 'turismo/Contacto.html', data)
-@permission_required('turismo.add_regiones')
-def agregar_region(request):
+    return render(request, 'turismo/contacto/agregar.html', data)
+
+def listar_cont(request):
+    contact = Contacto.objects.all()
     data = {
-        'form': RegionForm()
+        'contact' : contact
     }
-    if request.method == 'POST':
-        formulario = RegionForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            data["mensaje"] = "region agregada"
-        else:
-            data["form"] = formulario
-    return render(request, 'turismo/region/agregar.html', data)
-@permission_required('turismo.view_regiones')
-def listar_region(request):
-    regions = Regiones.objects.all()
-    data = {
-        'regions' : regions
-    }
-    return render(request, 'turismo/region/listar.html', data)
-@permission_required('turismo.change_regiones')
-def modificar_region(request, id):
-    region = get_object_or_404(Regiones, id_region=id)
+    return render(request, 'turismo/contacto/listar.html', data)
+
+def modificar_cont(request, id):
+    con = get_object_or_404(Contacto, id=id)
 
     data = {
-        'form' : RegionForm(instance=region)
+        'form' : ContactoForm(instance=con)
     }
     if request.method == 'POST':
-        formulario = RegionForm(data=request.POST, instance=region)
+        formulario = ContactoForm(data=request.POST, instance=con)
         if formulario.is_valid():
             formulario.save()
-            return redirect(to="listar-region")
+            return redirect(to="listar-cont")
         data["form"] = formulario
-    return render(request, 'turismo/region/modificar.html', data)
-@permission_required('turismo.delete_regiones')
-def eliminar_region(request, id):
+    return render(request, 'turismo/contacto/modificar.html', data)
+
+def eliminar_cont(request, id):
     region = get_object_or_404(Regiones, id_region=id)
     region.delete()
-    return redirect(to="listar-region")
+    return redirect(to="listar-cont")
 
 def error_facebook(request):
     return render(request, 'registration/error_facebook.html')

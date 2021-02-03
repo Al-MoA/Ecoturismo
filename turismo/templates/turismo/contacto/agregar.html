@@ -1,0 +1,19 @@
+{% extends 'turismo/base.html' %}
+{% block contenido %}
+{% load crispy_forms_tags %}
+<h2>Contáctanos</h2>
+<form action="" class="formulario_contacto" method="POST">
+    
+    {% csrf_token %} 
+
+    {{ form | crispy }}
+    
+    
+    {% if user.is_authenticated   %}
+        <button type="submit" id="btnEnviar" class="button">Enviar</button>
+    {% else %}
+        <h1>Tienes que estar registrado para conatactarnos</h1>
+    {%endif%}
+</form>
+{{mensaje}}
+{% endblock %}

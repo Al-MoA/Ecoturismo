@@ -27,13 +27,13 @@
         <nav id=header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <a href="{% url 'index' %}">Página Principal</a>
             <a href="{% url 'Lugar1' %}">Primer Destino</a>
-            <a href="{% url 'Contacto' %}">Contacto</a>
-            {% if perms.turismo.add_regiones %}
-            <a href="{% url 'agregar-region'%}">Agregar Región</a>
-            {% endif %}
+            
+           
+            <a href="{% url 'agregar-cont'%}"> Contacto</a>
+            
 
-            {% if perms.turismo.view_regiones %}
-            <a href="{% url 'listar-region'%}">Listado Región</a>
+            {% if perms.turismo.view_contacto %}
+            <a href="{% url 'listar-cont'%}">Listado Contacto</a>
             {% endif %}
 
             {% if user.is_authenticated %}
@@ -75,13 +75,12 @@
         <!--redireccionar a la pagina de registro-->
         <a href="{% url 'index' %}">Página Principal</a>
         <a href="{% url 'Lugar1' %}">Primer Destino</a>
-        <a href="{% url 'Contacto' %}">Contacto</a>
-        {% if perms.turismo.add_regiones %}
-        <a href="{% url 'agregar-region'%}">Agregar Región</a>
-        {% endif %}
+       
+        <a href="{% url 'agregar-cont'%}">Contacto</a>
+        
 
-        {% if perms.turismo.view_regiones %}
-        <a href="{% url 'listar-region'%}">Listado Región</a>
+        {% if perms.turismo.view_contacto %}
+        <a href="{% url 'listar-cont'%}">Listado Contacto</a>
         {% endif %}
 
         {% if user.is_authenticated %}
