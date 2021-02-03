@@ -26,6 +26,12 @@ Se migran los archivos de la fase #1 a Python-Django para trabajar en la parte b
 
 Pull del archivo README.md actualizado y subiendo proyecto ya migrado.
 
+
 #release
 
 Se da visto bueno a los archivos subidos por la rama dev.
+
+
+#master
+
+Segundo merge finalizado.
