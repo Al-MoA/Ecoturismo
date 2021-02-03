@@ -35,3 +35,11 @@ Se da visto bueno a los archivos subidos por la rama dev.
 #master
 
 Segundo merge finalizado.
+
+#Fase #3
+
+Se añade al proyecto funcionalidad de login con Facebook y que la página mantenga su estructura en el caso de perder la conexión a internet.
+
+#dev
+
+Pull de los archivos actualizados y push del proyecto en fase #3.
