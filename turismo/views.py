@@ -81,8 +81,8 @@ def modificar_cont(request, id):
     return render(request, 'turismo/contacto/modificar.html', data)
 
 def eliminar_cont(request, id):
-    region = get_object_or_404(Regiones, id_region=id)
-    region.delete()
+    cont = get_object_or_404(Contacto, id=id)
+    cont.delete()
     return redirect(to="listar-cont")
 
 def error_facebook(request):
