@@ -27,10 +27,10 @@ class Turista(models.Model):#creacion de tabla turista
     
 
 opciones_consultas = [
-    [0, "consulta"],
-    [1, "reclamo"],
-    [2, "sugerencia"],
-    [3, "felicitaciones"]
+    [0, "Consulta"],
+    [1, "Reclamo"],
+    [2, "Sugerencia"],
+    [3, "Felicitaciones"]
 ]
 class Contacto(models.Model):
     nombre = models.CharField(max_length=50)

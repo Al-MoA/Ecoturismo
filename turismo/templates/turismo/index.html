@@ -4,7 +4,16 @@
 <div class="container">
     <p>
         <h1>Temperatura en Santiago centro: {{clima}}</h1>
+    
     </p>
+</div>
+<div>
+    <select name="" id="">
+        {% for r in region %}
+            <option value="">{{r.nombre}}</option>
+        {% endfor %}
+    </select>
+    <a href="#">Buscar</a>
 </div>
 <div class="row">
     <img src="{% static 'Imagenes/Logo.jpeg.jpg' %}" width=100% alt="Imagen no disponible"

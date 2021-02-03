@@ -22,7 +22,9 @@ def index(request):#muestra pagina inicial
     Temp = json.loads(datos)
     clima = Temp["Temp"]
     
-    return render(request, 'turismo/index.html',{'carrucel': carrucel,'clima':clima})
+    region = Regiones.objects.all()
+    
+    return render(request, 'turismo/index.html',{'carrucel': carrucel,'clima':clima, 'region':region})
 
 def Registro(request):#muestra pagina inicial
     data = {
@@ -61,10 +63,15 @@ def agregar_cont(request):
 
 def listar_cont(request):
     contact = Contacto.objects.all()
-    data = {
-        'contact' : contact
-    }
-    return render(request, 'turismo/contacto/listar.html', data)
+    correo = ""
+    avisos = True   
+    if request.POST.get('avisos'):
+        correo = request.POST.get('avisos')
+        contact = contact.filter(avisos=avisos)
+    if request.POST.get('correo'):
+        correo = request.POST.get('correo')
+        contact = contact.filter(correo=correo)
+    return render(request, 'turismo/contacto/listar.html',{'contact' : contact, 'correo':correo, 'avisos':avisos})
 
 def modificar_cont(request, id):
     con = get_object_or_404(Contacto, id=id)
