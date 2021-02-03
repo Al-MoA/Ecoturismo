@@ -47,3 +47,7 @@ Pull de los archivos actualizados y push del proyecto en fase #3.
 #release
 
 Se da visto bueno a los archivos subidos por rama dev. El proyecto está listo para que hace haga merge de master con release.
+
+#master
+
+Se da fin a la fase #3.
