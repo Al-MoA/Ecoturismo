@@ -9,12 +9,12 @@ Se crea el repositorio git donde se sube la primera parte del proyecto, frontend
 
 #release
 
-Se da visto bueno a los archivos subidos por rama dev
+Se da visto bueno a los archivos subidos por rama dev.
 
 
 #master
 
-Primer merge finalizado
+Primer merge finalizado.
 
 
 #Fase #2
@@ -25,3 +25,7 @@ Se migran los archivos de la fase #1 a Python-Django para trabajar en la parte b
 #dev
 
 Pull del archivo README.md actualizado y subiendo proyecto ya migrado.
+
+#release
+
+Se da visto bueno a los archivos subidos por la rama dev.
