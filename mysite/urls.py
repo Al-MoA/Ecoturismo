@@ -22,8 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),#url panerl de administracion
     path('', include('turismo.urls')),#colocando paguina inical
     path('accounts/', include('django.contrib.auth.urls')), 
+    path('social-auth/', include('social_django.urls', namespace="social")),
+    path('', include('pwa.urls')),
 ]
 
 if settings.DEBUG:
-     urlpatterns += static(settings.MEDIA_URL,
-                              document_root=settings.MEDIA_ROOT)
+     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

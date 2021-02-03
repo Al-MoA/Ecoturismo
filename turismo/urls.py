@@ -1,5 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from .views import RegionesViewSet
+from rest_framework import routers
+
+routers = routers.DefaultRouter()
+routers.register('Regiones', RegionesViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -11,5 +16,6 @@ urlpatterns = [
     path('listar-region/', views.listar_region, name= 'listar-region'),
     path('modificar-region/<id>/', views.modificar_region, name= "modificar-region"),
     path('eliminar-producto/<id>/', views.eliminar_region, name="eliminar-region"),
-    
+    path('api/', include(routers.urls)),
+    path('error_facebook/', views.error_facebook, name='error_facebook'),
 ]

@@ -4,14 +4,25 @@ from .form import ContactoForm, RegionForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from rest_framework import viewsets
+from .serializers import RegionesSerializer
+from urllib.request import urlopen
+import json
+
+class RegionesViewSet(viewsets.ModelViewSet):
+    queryset = Regiones.objects.all()
+    serializer_class = RegionesSerializer
 
 # Create your views here.
 def index(request):#muestra pagina inicial
     carrucel = Carrucel.objects.all()
-    data = {
-        'carrucel': carrucel
-    }
-    return render(request, 'turismo/index.html', data)
+    
+    url = "https://api.gael.cl/general/public/clima/SCQN"
+    datos = urlopen(url).read()
+    Temp = json.loads(datos)
+    clima = Temp["Temp"]
+    
+    return render(request, 'turismo/index.html',{'carrucel': carrucel,'clima':clima})
 
 def Registro(request):#muestra pagina inicial
     data = {
@@ -86,4 +97,6 @@ def eliminar_region(request, id):
     region.delete()
     return redirect(to="listar-region")
 
+def error_facebook(request):
+    return render(request, 'registration/error_facebook.html')
 

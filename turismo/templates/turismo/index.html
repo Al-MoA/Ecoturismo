@@ -1,6 +1,11 @@
 {% extends 'turismo/base.html' %}
 {% load static %}
 {% block contenido %}
+<div class="container">
+    <p>
+        <h1>Temperatura en Santiago centro: {{clima}}</h1>
+    </p>
+</div>
 <div class="row">
     <img src="{% static 'Imagenes/Logo.jpeg.jpg' %}" width=100% alt="Imagen no disponible"
         class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -36,7 +41,7 @@
     </p>
     <!--imagen-->
     <div class="row">
-        <img src="{% static 'Imagenes/c2.jpeg.gif' %}" width=100% alt="Imagen no disponible"
+        <img src="{% static 'Imagenes/verde.jpg' %}"  alt="Imagen no disponible"
             class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     </div>
 </div>

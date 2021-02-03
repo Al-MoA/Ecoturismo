@@ -14,45 +14,58 @@
     <link rel="stylesheet" href="{% static 'css/slider.css' %}">
     <!--titulo-->
     <title>Ecoturismo Lugares que Hablan</title>
+
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
+    
 </head>
 
 <body>
-   
+
     <div>
         <nav id=header class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <a href="{% url 'index' %}">Página Principal</a>
             <a href="{% url 'Lugar1' %}">Primer Destino</a>
             <a href="{% url 'Contacto' %}">Contacto</a>
             {% if perms.turismo.add_regiones %}
-                <a href="{% url 'agregar-region'%}">Agregar Región</a>
+            <a href="{% url 'agregar-region'%}">Agregar Región</a>
             {% endif %}
 
             {% if perms.turismo.view_regiones %}
-                <a href="{% url 'listar-region'%}">Listado Región</a>
+            <a href="{% url 'listar-region'%}">Listado Región</a>
             {% endif %}
 
             {% if user.is_authenticated %}
-            
-                <a href="{% url 'logout' %}">Cerrar Sesión</a>
-           
-            
-                <h3>username: {{ user.username }}</h3>
-            
+
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+
+
+            <li>{% for auth in backends.associated %}
+                    {% if auth.provider == 'facebook' %}
+                        <img src="{{ auth.extra_data.picture.data.url }}" alt="40" height="40">
+                    {% endif %}
+                {% endfor %}
+                username: {{ user.username }}
+            </li>
+
             {%else%}
-           
-                <a href="{% url 'login'%}"> Inciar Sesión</a>
-                <a href="{% url 'Registro'%}">Regístrate</a>
+
+            <a href="{% url 'login'%}"> Inciar Sesión</a>
+            <a href="{% url 'social:begin' 'facebook'%}">Ingresar con facebook</a>
+            <a href="{% url 'Registro'%}">Regístrate</a>
 
             {%endif%}
+            
         </nav>
     </div>
-    
+
     <div id="cuerpo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         {% block contenido %}
         {% endblock %}
     </div>
-    
-    
+
+
 </body>
 
 <footer id="footer">
@@ -61,30 +74,31 @@
         <p> <em> Imagenes utilizadas con propositos educacionales, no somos dueños de ellas</em></p>
         <!--redireccionar a la pagina de registro-->
         <a href="{% url 'index' %}">Página Principal</a>
-            <a href="{% url 'Lugar1' %}">Primer Destino</a>
-            <a href="{% url 'Contacto' %}">Contacto</a>
-            {% if perms.turismo.add_regiones %}
-                <a href="{% url 'agregar-region'%}">Agregar Región</a>
-            {% endif %}
+        <a href="{% url 'Lugar1' %}">Primer Destino</a>
+        <a href="{% url 'Contacto' %}">Contacto</a>
+        {% if perms.turismo.add_regiones %}
+        <a href="{% url 'agregar-region'%}">Agregar Región</a>
+        {% endif %}
 
-            {% if perms.turismo.view_regiones %}
-                <a href="{% url 'listar-region'%}">Listado Región</a>
-            {% endif %}
+        {% if perms.turismo.view_regiones %}
+        <a href="{% url 'listar-region'%}">Listado Región</a>
+        {% endif %}
 
-            {% if user.is_authenticated %}
-            
-                <a href="{% url 'logout' %}">Cerrar Sesión</a>
-           
-            
-              
-            
-            {%else%}
-           
-                <a href="{% url 'login'%}"> Inciar Sesión</a>
-                <a href="{% url 'Registro'%}">Regístrate</a>
+        {% if user.is_authenticated %}
 
-            {%endif%}
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+
+
+
+
+        {%else%}
+
+        <a href="{% url 'login'%}"> Inciar Sesión</a>
+        <a href="{% url 'Registro'%}">Regístrate</a>
+
+        {%endif%}
         </nav>
     </div>
 </footer>
+
 </html>
